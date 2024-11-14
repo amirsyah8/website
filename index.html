@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    #numCt{
+        display: block;
+        text-align: center;
+        font-size: 10em;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    #btnContainer{
+        text-align: center;
+    }
+    .buttons{
+        padding: 10px 20x;
+        font-size: 1.5em;
+        color: white;
+        background-color: rgb(132, 132, 224);
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.25s;
+    }
+    .buttons:hover{
+        background-color: rgb(68, 68, 175);
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 id="numCt">0</h1>
+    <div id="btnContainer">
+        <button id="bTambah" class="buttons">Tambah</button>
+        <button id="bReset" class="buttons">reset</button>
+        <button id="bTolak" class="buttons">tolak</button>
+    </div>
+    
+    <script>
+        let numb = 0;
+        const numCount = document.getElementById("numCt");
+        const tambahNum = document.getElementById("bTambah").onclick = function(){
+            numb++;
+            numCount.textContent = numb;
+        }
+        const tolakNum = document.getElementById("bTolak").onclick = function(){
+            numb--;
+            numCount.textContent = numb;
+        }
+        const resetNum = document.getElementById("bReset").onclick = function(){
+            numb = 0;
+            numCount.textContent = numb;
+        }  
+
+    </script>
+    <!--<script src="index.js"></script>-->
+</body>
+</html>
