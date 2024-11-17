@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number guest</title>
+</head>
+<body>
+    <label for="guestNum">Cuba pilih no</label><br>
+    <input type="text" id="guestNum">
+    <button id="summitG">Try</button>
+    <p id="resultGuest"></p>
+    <button id="nextTry" style="display: none;">Cuba lagi</button>
+    <script>
+        const summitG = document.getElementById("summitG");
+        const resultGuest = document.getElementById("resultGuest");
+        answer = Math.floor(Math.random()*100)
+        console.log(answer);
+        attemp = 1;
+        function checkGuest(){
+            const guestNum = document.getElementById("guestNum").value;
+            console.log(answer);
+            if(answer<guestNum){
+                resultGuest.textContent = `${guestNum} terlalu besar`;
+                attemp++;
+            }else if(answer>guestNum){
+                resultGuest.textContent = `${guestNum} terlalu kecik`;
+                attemp++;
+            }else{
+                resultGuest.textContent = `Nombor ${guestNum} adalah tepat, anda telah membuat ${attemp} percubaan`;
+                summitG.style.display = "none";
+                nextTry.style.display = "block";
+                
+            }
+            
+        }
+        summitG.onclick = checkGuest;
+        nextTry.onclick = function(){
+            resultGuest.textContent = "";
+            attemp = 1;
+            answer = Math.floor(Math.random() * 100);
+            guestNum.value = "";
+            nextTry.style.display = "none";
+            summitG.style.display = "block";
+        }
+
+    </script>
+</body>
+</html>
