@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 2em;
+    }
+    #mysubmit{
+        font: 1em sans-serif;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" id="checkboxid">
+    <label for="checkboxid">Subscribe</label><br>
+    <input type="radio" id="forvisa" name="card">
+    <label for="forvisa">Visa</label><br>
+    <input type="radio" id="formaster" name="card">
+    <label for="formaster">Master</label><br>
+    <input type="radio" id="forqr" name="card">
+    <label for="forqr">Qr code</label><br><br>
+    <button type="submit" id="mysubmit">Submit</button>
+
+    <p id="subResult"></p>
+    <p id="payResult"></p>
+
+    
+    <script>
+        const checkboxid = document.getElementById("checkboxid")
+        const forvisa = document.getElementById("forvisa")
+        const formaster = document.getElementById("formaster")
+        const forqr = document.getElementById("forqr")
+        const mysubmit = document.getElementById("mysubmit")
+        const subResult = document.getElementById("subResult")
+        const payResult = document.getElementById("payResult")
+
+        mysubmit.onclick = function(){
+            if(checkboxid.checked){
+                subResult.textContent = "Anda teleh melanggan"
+                if(forvisa.checked){
+                    payResult.textContent = "Anda telah memilih pembyaran melalui visa"   
+                }else if(formaster.checked){
+                    payResult.textContent = "Anda telah memilih pembyaran melalui master"
+                }else if(forqr.checked){
+                    payResult.textContent = "Anda telah memilih pembyaran melalui Qr"
+                }else{
+                    payResult.textContent = "Sila pilih kaedah pembayaran"
+                }
+            }else{
+                subResult.textContent = "Sila melanggan terlebih dahulu"
+            }
+        }
+    </script>
+</body>
+</html>
